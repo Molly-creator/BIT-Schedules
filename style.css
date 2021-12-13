@@ -82,13 +82,15 @@ nav li {
 }
 
 nav a {
-   
+    display: flex;
+    margin-left:20px;
+    justify-items: center;
+    align-items: center;
     text-decoration: none;
     color: var(--text-color);
-    width: 100%;
+    width: 150px;
     height: 100%;
-    border-left: var(--contrast-color-blue) 2px solid;
-    border-right: var(--contrast-color-blue) 2px solid;
+
 }
 
 nav a:visited {
@@ -100,7 +102,7 @@ nav li:hover {
     /* background-image: linear-gradient(0deg,rgb(95, 190, 181),#444);
     filter: drop-shadow( 0 0 6px rgb(15, 210, 236)); */
  
-    box-shadow:  0 0 .7em rgb(15, 210, 236);
+    box-shadow:  0 0 .8em rgb(15, 210, 236);
     overflow: visible;
 }
 nav a:hover .material-icons{
