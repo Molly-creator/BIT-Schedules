@@ -26,7 +26,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
 }
 
 .container {
@@ -83,13 +82,14 @@ nav li {
 
 nav a {
     display: flex;
-    margin-left:20px;
+    margin-left:15px;
     justify-items: center;
     align-items: center;
     text-decoration: none;
     color: var(--text-color);
     width: 150px;
     height: 100%;
+    gap:12px;
 
 }
 
@@ -132,7 +132,7 @@ nav a:hover .material-icons{
 }
 #logo:hover {
     color:white;
-    border-color:white;
+    border-color:var(--contrast-color-blue);
     transition-duration: 1s;
     filter: drop-shadow( 0 0 .7em rgb(15, 210, 236));
     overflow: visible;
@@ -141,6 +141,19 @@ nav a:hover .material-icons{
     text-decoration: none;
     color:rgb(95, 190, 181);
 }
+/* Content main page */
+span {
+    font-weight: bolder;
+}
+
+h1 {
+    color: var(--filter-contrast);
+}
+
+h2 {
+    color: var(--contrast-color-blue);
+}
+
 
 /* Footer */
 .footerbar {
@@ -179,7 +192,7 @@ footer a:visited{
     color: var(--text-color)
 }
 
-footer  a:hover{
+footer a:hover{
     text-decoration: none;
     color: var(--table-bg-color);
     border-radius: 5px;
