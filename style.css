@@ -1,12 +1,22 @@
 :root {
     --text-color-v2:rgb(22, 14, 0);
     --color-white:white;
-    --table-odd-color:rgba(158, 60, 60, 0.178);
+    --table-bg-yellow:rgba(228, 200, 107, 0.322);
+    --table-odd-yellow: rgba(236, 184, 71, 0.411);
+    
+    --table-red: rgba(168, 0, 0, 0.37);
+    --table-odd-red:rgba(236, 71, 71, 0.411); 
+    --table-bg-color:rgba(119, 60, 158, 0.178);
+    --table-odd-color: rgba(236, 135, 182, 0.411);
+    --table-bg-color2:rgba(47, 114, 47, 0.52);
+    --table-odd-color2:rgba(126, 165, 126, 0.2);
+
     --nav-color: rgba(54, 53, 53, 0.726);
     --bg-color-dark: #444;
     --text-color-dark:rgb(255, 255, 255);
-    --contrast-color-blue: #00BFFF;
+    --contrast-color-blue: #86d8f39f;
     --filter-contrast: rgb(1, 255, 234, 0.2);
+    --bg-cards: rgba(83, 121, 117, 0.376);
     font-size: 20px;
     line-height: 1.4;
     font-family: 'Work Sans', sans-serif;
@@ -26,15 +36,25 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top:80px;
 }
 
 .container {
-    width: 70vw;
+    width: 80vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
-
+section {
+    display: flex;
+    min-height: fit-content;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:20px;
+}
 /* Navigation bar */
 .navbar {
     position: absolute;
@@ -90,7 +110,6 @@ nav a {
     width: 150px;
     height: 100%;
     gap:12px;
-
 }
 
 nav a:visited {
@@ -98,10 +117,6 @@ nav a:visited {
     color: var(--text-color)
 }
 nav li:hover {
-    
-    /* background-image: linear-gradient(0deg,rgb(95, 190, 181),#444);
-    filter: drop-shadow( 0 0 6px rgb(15, 210, 236)); */
- 
     box-shadow:  0 0 .8em rgb(15, 210, 236);
     overflow: visible;
 }
@@ -152,27 +167,225 @@ h1 {
 
 h2 {
     color: var(--contrast-color-blue);
+    align-self: flex-start;
+}
+p,h3,h2,h4 {
+    align-self: flex-start;
+}
+
+/* Tables & Cards*/
+
+.tbl-intro {
+    display:flex;
+    min-width:fit-content;
+    flex-direction: column;
+    gap:40px;
+}
+
+table {
+    background-color: var(--table-bg-color);
+    color: var(--text-color-dark);
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: fit-content;
+    margin-left:40px;
+}
+tr:nth-child(odd) {
+    background-color: var(--table-odd-color);
+}
+
+tr:nth-child(1) {
+   text-transform: uppercase;
+   padding:10px 0px 10px 5px;;
+}
+
+tr {
+    padding: 1px 5px 5px 5px;
+    display: flex;
+    min-width: fit-content;
+    flex-grow: 1;
+    box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+td {
+    width: 150px;
+    border: var(--nav-color) 2px;
+}
+
+.tbl-Hours {
+    background-color: var(--table-bg-color2);
+
+}
+.tbl-Hours tr:nth-child(odd) {
+    background-color: var(--table-odd-color2);
+}
+
+td:nth-child(1) {
+    min-width: fit-content;
+}
+.Overview-tbl {
+    background-color: var(--table-bg-yellow)
+}
+.Overview-tbl tr:nth-child(odd) {
+    background-color: var(--table-odd-yellow)
+}
+
+.tbl-av-days tr{
+background-color:var(--table-red);
+}
+.tbl-av-days tr:nth-child(odd) {
+    background-color: var(--table-odd-red);
 }
 
 
+/* CARDS */
+
+#cards-Planner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    height:160px;
+    gap:20px;
+}
+
+#cards-Planner h3, p {
+    flex-grow:1;
+    align-self: center;
+}
+#cards-Planner div {
+    display: flex;
+    margin: 0px 20px 0px 20px;
+    flex-direction: column;
+    width: 150px;
+    height:90px;
+    border-radius: 10px;
+    background-color: var(--table-bg-color);
+    border: var(--table-odd-color) 2px solid;
+    align-items: center;
+    font-size:larger;
+    margin-top:35px;
+    
+}
+#cards-Planner div h3 {
+   font-size: 24px;
+   width:100%;
+   text-align: center;
+   border-bottom: var(--table-odd-color) 1px solid;
+   color: var(--table-color);
+}
+.Maandag {
+    order:0;
+}
+.Dinsdag {
+    order:1;
+}
+.Woensdag {
+    order:2;
+}
+.Donderdag {
+order:3;
+}
+.Vrijdag {
+    order:4;
+}
+.Zaterdag {
+    order:5;
+}
+.Zondag {
+    order:6;
+}
+#cards-Preference {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+#cards-Preference div {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 210px;
+    height: 300;
+    border: var(--filter-contrast) 2px solid;
+    align-items: center;
+    justify-content: center;
+    padding:15px;
+}
+#cards-Preference div img {
+    width: 110px;
+    height: 120px;
+    border-radius: 10px;
+    background-color: var(--bg-cards);
+    border: var(--filter-contrast) 2px solid;
+    /* filter:invert(0.6) sepia(0.5) saturate(4) hue-rotate(0deg) brightness(1.2); */
+    filter:invert(0.6) sepia(3) saturate(1) hue-rotate(150deg) brightness(.8);
+}
+#cards-Preference p, #cards-Preference h3 {
+   align-self: center;
+   flex-wrap: wrap;
+   text-align: center;
+}
+
+#cards-Preference div:nth-last-child(-n + 2) {
+    order:-2;
+    text-align: center;
+}
+#cards-Preference div:nth-child(2){
+    order:-1;
+    text-align: center;
+}
+#cards-Preference div:nth-last-child(2){
+    filter: drop-shadow( 0 0 .7em rgb(15, 210, 236));
+    border-color: rgba(255, 180, 20, 0.822);
+    align-self: center;
+}
+#overview-Preference {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#overview-Preference div{
+    border: var(--table-odd-red) 2px solid;
+
+    width:120px;
+    height:100px;
+}
+
+.Generate-Schedule {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:50px;
+}
+.NewPlanning td{
+    width: 200px;
+}
+
 /* Footer */
 .footerbar {
-    position: fixed;
-    bottom:0;
+   
     display: flex;
-    width: 100%;
+    align-items: flex-end;
+    width: 100vw;
+    height: 50px;
     background-color: var(--nav-color);
     color: var(--text-color);
 }
 
 footer {
-    height: 50px;
-    width:100%;
-    position: sticky;
-    bottom: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
+}
+
+footer a img {
+    filter:invert(0.6) sepia(3) saturate(10) hue-rotate(150deg) brightness(1);
 }
 
 footer ul,footer li {
@@ -194,10 +407,10 @@ footer a:visited{
 
 footer a:hover{
     text-decoration: none;
-    color: var(--table-bg-color);
+    color: rgb(15, 210, 236);
     border-radius: 5px;
 }
 
-footer a img {
-    filter:invert(0.6) sepia(3) saturate(10) hue-rotate(150deg) brightness(1);
-}
+
+
+
