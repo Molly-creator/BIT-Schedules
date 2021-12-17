@@ -10,6 +10,8 @@
     --table-odd-color: rgba(236, 135, 182, 0.411);
     --table-bg-color2:rgba(47, 114, 47, 0.52);
     --table-odd-color2:rgba(126, 165, 126, 0.2);
+    --table-odd--blue: #a4dbee54;
+    --table-blue: #86d8f362;
 
     --nav-color: rgba(54, 53, 53, 0.726);
     --bg-color-dark: #444;
@@ -60,7 +62,7 @@ section {
     position: absolute;
     top:0;
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 50px;
     align-items: center;
     justify-content: center;
@@ -299,7 +301,7 @@ order:3;
 }
 #cards-Preference {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap:wrap;
     gap:10px;
 }
@@ -361,15 +363,30 @@ order:3;
     justify-content: space-between;
     gap:50px;
 }
-.NewPlanning td{
-    width: 200px;
+.tbl-Rooster tr, .tbl-Rooster th{
+    width: 500px;
+    justify-content: space-between;
+    margin:5px;
+}
+.tbl-Rooster {
+   margin-bottom: 80px;
+   
 }
 
+
+.Rooster table{
+    display:flex;
+    align-items: center;
+}
 /* Footer */
 .footerbar {
-   
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
-    align-items: flex-end;
+    position: fixed;
+    
     width: 100vw;
     height: 50px;
     background-color: var(--nav-color);
@@ -377,6 +394,7 @@ order:3;
 }
 
 footer {
+   
     height: 100%;
     width: 100%;
     display: flex;

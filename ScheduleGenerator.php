@@ -84,13 +84,13 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
         
                     }
                     elseif (in_array(2, $Preference) && (count($NewPlanning['Maandag 09:00-17:30']) < 1)) {
-                        array_push($NewPlanning, ['Maandag 19:00-21:00'], $Name);
-                    } else {
-                        array_push($NewPlanning, ['Maandag 09:00-17:30'],$Name);
-                    }
+                            array_push($NewPlanning, ['Maandag 19:00-21:00'], $Name);
+                        } else {
+                            array_push($NewPlanning, ['Maandag 09:00-17:30'],$Name);
+                        }
 
                     if (in_array(3, $Preference)) {
-                        if (empty($NewPlanning['Maandag 09:00-17:30'])) {
+                        if (empty($NewPlanning['Maandag 09:00-17:30']) && count($NewPlanning['Maandag 09:00-17:30']) < 1) {
                         array_push($NewPlanning['Maandag 09:00-17:30'], $Name);
         
                         }
@@ -104,7 +104,7 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
 
             case 1:
         
-                    if (in_array(0, $Preference) || in_array(1, $Preference)) { 
+                    if (in_array(0, $Preference) || in_array(1, $Preference) && count($NewPlanning['Dinsdag 09:00-17:30']) != 1) { 
                         array_push($NewPlanning['Dinsdag 09:00-17:30'], $Name);
                
                     }
@@ -112,7 +112,7 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
                         array_push($NewPlanning['Dinsdag 19:00-21:00'], $Name);
                     
                     }
-                    elseif (in_array(3, $Preference)) {
+                    elseif (in_array(3, $Preference)  && count($NewPlanning['Dinsdag 09:00-17:30']) != 1) {
                         if (empty($NewPlanning['Dinsdag 09:00-17:30'])) {
                             array_push($NewPlanning['Dinsdag 09:00-17:30'], $Name);
                           
@@ -127,7 +127,7 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
 
             case 2:
              
-                    if (in_array(0, $Preference) || in_array(1, $Preference)) {
+                    if (in_array(0, $Preference) || in_array(1, $Preference) && count($NewPlanning['Woensdag 09:00-17:30']) != 1) {
                         array_push($NewPlanning['Woensdag 09:00-17:30'],$Name);
                        
                     }
@@ -135,7 +135,7 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
                         array_push($NewPlanning['Woensdag 19:00-21:00'],$Name);
                    
                     }
-                    elseif (in_array(3, $Preference)) {
+                    elseif (in_array(3, $Preference) && count($NewPlanning['Woensdag 09:00-17:30']) != 1) {
                         if (empty($NewPlanning['Woensdag 09:00-17:30'])) {
                             array_push($NewPlanning['Woensdag 09:00-17:30'],$Name);
                             
@@ -150,7 +150,7 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
 
             case 3:
             
-                    if (in_array(0, $Preference) || in_array(1, $Preference)) { 
+                    if (in_array(0, $Preference) || in_array(1, $Preference) && count($NewPlanning['Donderdag 09:00-17:30']) != 1) { 
                         array_push($NewPlanning['Donderdag 09:00-17:30'], $Name);
                     
                     }
@@ -158,7 +158,7 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
                         array_push($NewPlanning['Donderdag 19:00-21:00'], $Name);
                        
                     }
-                    elseif (in_array(3, $Preference)) {
+                    elseif (in_array(3, $Preference) && count($NewPlanning['Donderdag 09:00-17:30']) != 1) {
                         if (empty($NewPlanning['Donderdag 09:00-17:30'])) {
                             array_push($NewPlanning['Donderdag 09:00-17:30'], $Name);
                             
@@ -173,12 +173,12 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
 
             case 4:
               
-                    if (in_array(0, $Preference) || in_array(1, $Preference)) { 
+                    if (in_array(0, $Preference) || in_array(1, $Preference) && count($NewPlanning['Vrijdag 09:00-17:30']) != 1) { 
                         array_push($NewPlanning['Vrijdag 09:00-17:30'], $Name);
                        
                     }
               
-                    elseif (in_array(3, $Preference)) {
+                    elseif (in_array(3, $Preference) && count($NewPlanning['Vrijdag 09:00-17:30']) != 1) {
                         if (empty($NewPlanning['Vrijdag 09:00-17:30'])) {
                             array_push($NewPlanning['Vrijdag 09:00-17:30'], $Name);
                           
@@ -188,7 +188,6 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
                 break;
 
             case 5:
-                if
                
                     if (in_array(0, $Preference) || in_array(1, $Preference)) { 
                         array_push($NewPlanning['Zaterdag 09:00-17:30'], $Name);
@@ -203,7 +202,7 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
                 
                 break;
             case 6:
-                if (!in_array($Name, $NamesUsed)) {
+                
                     if (in_array(0, $Preference) || in_array(1, $Preference)) { 
                         array_push($NewPlanning['Zondag 09:00-17:30'], $Name);
                        
@@ -249,4 +248,4 @@ for ($i = 0; $i < count($ShiftDay); $i++) {
 }
 
 //Opvullen met 
-var_dump($NewPlanning);
+// var_dump($NewPlanning);

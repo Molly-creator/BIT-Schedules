@@ -188,7 +188,6 @@ array_push($CoachePlanner[5], ['DaysWorked' => [2], 'Shift' => [0,1], 'HrsWorked
 $coachHoursWorked = [];
 for ($i = 0; $i < count($CoachePlanner); $i++) {
     $Name = $CoachePlanner[$i]['Name'];
-    $Hrs = $CoachePlanner[$i][0]['HrsWorked'];
     $Preference = $CoachePlanner[$i]['Preference'];
     $Shift = $CoachePlanner[$i][0]['Shift'];
 
@@ -216,7 +215,7 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
 
     
     $Teller = 0;
-    for ($j = 0; $j < count($Shift); $j++) {
+    for ($j = 0; $j < 10; $j++) {
         // if (in_array($Shift[$j], $Preference)) {
             Switch(in_array($Shift[$j], $Preference)) {
                 case True:
@@ -226,3 +225,18 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
     }
     array_push($PrefHours[$Name], $Teller);
 }
+
+
+$ShiftPlanning = [
+    'Maandag 09:00-17:30' => ["Alexander"],
+    'Maandag 19:00-21:00' => ["Sander"],
+    'Dinsdag 09:00-17:30' => ["Daniel"],
+    'Dinsdag 19:00-21:00' => ["Henok"],
+    'Woensdag 09:00-17:30' => ["Sam"],
+    'Woensdag 19:00-21:00' => ["Sander"],
+    'Donderdag 09:00-17:30' => ["Daniel"],
+    'Donderdag 19:00-21:00' => ["Alexander"],
+    'Vrijdag 09:00-17:30' => ["Nick"],
+    'Zaterdag 09:00-17:30' => ["Alexander"],
+    'Zondag 09:00-17:30' => ["Sander"],
+]; 

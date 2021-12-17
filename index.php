@@ -270,6 +270,7 @@ require("./Schedules.php");
                 for ($i = 0; $i < count($CoachePlanner); $i ++) {
                     $CoachName = $CoachePlanner[$i]['Name'];
                     $Preference = $CoachePlanner[$i]['Preference'];
+                    $Available = $CoachePlanner[$i]['Availability'];
 
                     if($name == $CoachName) {
                         foreach($Preference as $enum) {
@@ -278,31 +279,34 @@ require("./Schedules.php");
                             if($enum == 2) {echo "<p>avond</p>";}
                             if($enum == 3) {echo "<p>geen</p>";}                   
                         }
-                    } 
-                    }}
-
-                echo "</span></td></tr>";
+                    }
+                    }
+                }
             }
           
             ?>
-
+    
             </table>
 
-            <div><?php
-            require_once("./ScheduleGenerator.php");
-
-            echo"<table class='NewPlanning'><tr><th>Nieuw rooster</th></tr>";
-            foreach($NewPlanning as $key => $val) {
-                echo "<tr><td> $key</td><td>$val[0]</td></tr>";
-            }
-            ?>
+            <div class="Rooster">
+            <h2>Nieuw Rooster naar voorkeur coaches</h2>
+            <p>Hieronder is het eindresultaat te zien van alle gevens die zijn verzamelend en bestudeerd.</p>
+            <table class="tbl-Rooster">
+            <tr><th>Rooster</th></tr>
+            <?php
+            
+                foreach ($ShiftPlanning as $shift => $Name) {
+                    echo "<tr><td>$shift</td>";
+                    foreach($Name as $coach) {
+                        echo "<td>$coach</td></tr>";  
+                    }
+                    
+                }
+            
+                ?>
+   
             </table>
-            </div>
-
-     
-         
-            <p><span>Eind!</span></p>
-        
+            </div>      
         
         </section>
     </div>
