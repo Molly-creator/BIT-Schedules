@@ -10,8 +10,6 @@
     --table-odd-color: rgba(236, 135, 182, 0.411);
     --table-bg-color2:rgba(47, 114, 47, 0.52);
     --table-odd-color2:rgba(126, 165, 126, 0.2);
-    --table-odd--blue: #a4dbee54;
-    --table-blue: #86d8f362;
 
     --nav-color: rgba(54, 53, 53, 0.726);
     --bg-color-dark: #444;
@@ -57,6 +55,11 @@ section {
     justify-content: space-between;
     gap:20px;
 }
+
+section:last-child {
+    margin-bottom:100px;
+}
+
 /* Navigation bar */
 .navbar {
     position: absolute;
@@ -301,7 +304,7 @@ order:3;
 }
 #cards-Preference {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap:wrap;
     gap:10px;
 }
@@ -363,17 +366,13 @@ order:3;
     justify-content: space-between;
     gap:50px;
 }
-.tbl-Rooster tr, .tbl-Rooster th{
+.tbl-Rooster tr{
     width: 500px;
     justify-content: space-between;
-    margin:5px;
 }
 .tbl-Rooster {
-   margin-bottom: 80px;
    
 }
-
-
 .Rooster table{
     display:flex;
     align-items: center;
