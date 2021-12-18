@@ -6,10 +6,10 @@
     
     --table-red: rgba(168, 0, 0, 0.37);
     --table-odd-red:rgba(236, 71, 71, 0.411); 
-    --table-bg-color:rgba(119, 60, 158, 0.178);
-    --table-odd-color: rgba(236, 135, 182, 0.411);
-    --table-bg-color2:rgba(47, 114, 47, 0.52);
-    --table-odd-color2:rgba(126, 165, 126, 0.2);
+    --table-bg-purple:rgba(119, 60, 158, 0.178);
+    --table-odd-pink: rgba(236, 135, 182, 0.411);
+    --table-bg-green:rgba(47, 114, 47, 0.52);
+    --table-odd-green:rgba(126, 165, 126, 0.2);
 
     --nav-color: rgba(54, 53, 53, 0.726);
     --bg-color-dark: #444;
@@ -53,7 +53,7 @@ section {
     min-height: fit-content;
     flex-direction: column;
     justify-content: space-between;
-    gap:20px;
+    gap:30px;
 }
 
 section:last-child {
@@ -181,14 +181,14 @@ p,h3,h2,h4 {
 /* Tables & Cards*/
 
 .tbl-intro {
-    display:flex;
-    min-width:fit-content;
+    display: flex;
+    min-width: fit-content;
     flex-direction: column;
-    gap:40px;
+    gap: 40px;
 }
 
 table {
-    background-color: var(--table-bg-color);
+    background-color: var(--table-bg-purple);
     color: var(--text-color-dark);
     margin-top: 10px;
     display: flex;
@@ -197,8 +197,9 @@ table {
     max-width: fit-content;
     margin-left:40px;
 }
+
 tr:nth-child(odd) {
-    background-color: var(--table-odd-color);
+    background-color: var(--table-odd-pink);
 }
 
 tr:nth-child(1) {
@@ -220,11 +221,11 @@ td {
 }
 
 .tbl-Hours {
-    background-color: var(--table-bg-color2);
+    background-color: var(--table-bg-green);
 
 }
 .tbl-Hours tr:nth-child(odd) {
-    background-color: var(--table-odd-color2);
+    background-color: var(--table-odd-green);
 }
 
 td:nth-child(1) {
@@ -238,12 +239,11 @@ td:nth-child(1) {
 }
 
 .tbl-av-days tr{
-background-color:var(--table-red);
+    background-color:var(--table-red);
 }
 .tbl-av-days tr:nth-child(odd) {
     background-color: var(--table-odd-red);
 }
-
 
 /* CARDS */
 
@@ -251,15 +251,16 @@ background-color:var(--table-red);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width:100%;
-    height:160px;
-    gap:20px;
+    width: 100%;
+    height: 160px;
+    gap: 20px;
 }
 
 #cards-Planner h3, p {
     flex-grow:1;
     align-self: center;
 }
+
 #cards-Planner div {
     display: flex;
     margin: 0px 20px 0px 20px;
@@ -267,19 +268,19 @@ background-color:var(--table-red);
     width: 150px;
     height:90px;
     border-radius: 10px;
-    background-color: var(--table-bg-color);
-    border: var(--table-odd-color) 2px solid;
+    background-color: var(--table-bg-purple);
+    border: var(--table-odd-pink) 2px solid;
     align-items: center;
     font-size:larger;
     margin-top:35px;
-    
 }
+
 #cards-Planner div h3 {
    font-size: 24px;
    width:100%;
    text-align: center;
-   border-bottom: var(--table-odd-color) 1px solid;
-   color: var(--table-color);
+   border-bottom: var(--table-odd-pink) 1px solid;
+   color: var(--table-color-purple);
 }
 .Maandag {
     order:0;
@@ -291,7 +292,7 @@ background-color:var(--table-red);
     order:2;
 }
 .Donderdag {
-order:3;
+    order:3;
 }
 .Vrijdag {
     order:4;
@@ -326,9 +327,9 @@ order:3;
     border-radius: 10px;
     background-color: var(--bg-cards);
     border: var(--filter-contrast) 2px solid;
-    /* filter:invert(0.6) sepia(0.5) saturate(4) hue-rotate(0deg) brightness(1.2); */
     filter:invert(0.6) sepia(3) saturate(1) hue-rotate(150deg) brightness(.8);
 }
+
 #cards-Preference p, #cards-Preference h3 {
    align-self: center;
    flex-wrap: wrap;
@@ -336,11 +337,11 @@ order:3;
 }
 
 #cards-Preference div:nth-last-child(-n + 2) {
-    order:-2;
+    order: -2;
     text-align: center;
 }
 #cards-Preference div:nth-child(2){
-    order:-1;
+    order: -1;
     text-align: center;
 }
 #cards-Preference div:nth-last-child(2){
@@ -356,15 +357,15 @@ order:3;
 #overview-Preference div{
     border: var(--table-odd-red) 2px solid;
 
-    width:120px;
-    height:100px;
+    width: 120px;
+    height: 100px;
 }
 
 .Generate-Schedule {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap:50px;
+    gap: 50px;
 }
 .tbl-Rooster tr{
     width: 500px;

@@ -189,15 +189,34 @@ $coachHoursWorked = [];
 for ($i = 0; $i < count($CoachePlanner); $i++) {
     $Name = $CoachePlanner[$i]['Name'];
     $Preference = $CoachePlanner[$i]['Preference'];
-    $Shift = $CoachePlanner[$i][0]['Shift'];
+    $Shift = array_column($CoachePlanner[$i], 'Shift');
+    $DaysWorked = array_column($CoachePlanner[$i], 'DaysWorked');
+  
+    
+    $Hrs = array_column($CoachePlanner[$i], 'HrsWorked');
 
-    $Hrs = array_sum($CoachePlanner[$i][0]['HrsWorked']);
-    array_push($coachHoursWorked, [$Hrs, $Name]);
-};
-sort($coachHoursWorked);
+    $Teller = 0;
+        foreach ($Hrs as $key => $val) {
+            $Hrs = array_sum($val) . PHP_EOL;
+  
+        }
+
+    foreach ($DaysWorked as $array => $enum){
+        count($enum) . PHP_EOL;
+    }
+    // foreach ($Shift as $array) {
+    //     foreach ($array as $key => $enum) {
+          
+    //         echo "$key => $enum" . PHP_EOL;
+    //         // for ($j = 0; $j < count($Shift); $j++) {
+    // }  }
+}
+
+// sort($coachHoursWorked);
 
 // Percentage voorkeur uitrekenen. Hiervoor kijken in CoacePlanner array naar 'Preference', 'HrsWorked' en 'Shift' in de .
 // Werkuren verdeeld in ochtend/middag/avond (tot 12.00/ tot 18.00/tot 00.00).
+
 $PrefHours = [
     'Sander' => [],
     'Alexander' => [],
@@ -216,16 +235,14 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
     
     $Teller = 0;
     for ($j = 0; $j < 10; $j++) {
-        // if (in_array($Shift[$j], $Preference)) {
+        if (in_array($Shift[$j], $Preference)) {
             Switch(in_array($Shift[$j], $Preference)) {
                 case True:
                     $Teller += $Hrs[$j];
             }
-           
     }
-    array_push($PrefHours[$Name], $Teller);
+}array_push($PrefHours[$Name], $Teller);
 }
-
 
 $ShiftPlanning = [
     'Maandag 09:00-17:30' => ["Alexander"],

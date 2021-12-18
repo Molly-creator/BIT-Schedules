@@ -125,17 +125,20 @@ require("./Schedules.php");
                 Per coach is te zien wat het aantal dagen, diensten, de voorkeur, het aantal uren en hoeveel daarvan in opgeven voorkeur zijn.
 
             <table class="Overview-tbl">
-            <tr><th><td>Naam</td><td>Voorkeur</td><td>Ingeroostert op</td><td>Uren</td><td>Uren in voorkeur</td><td>N-dagen</td><td>Dienst</td><td>Voorkeur?</td></th></tr>
+            <tr><th><td>Naam</td><td>Voorkeur</td><td>N-dagen</td><td>Ingeroostert op</td><td>Uren</td><td>Uren in voorkeur</td><td>Dienst</td><td>Voorkeur?</td></th></tr>
             <?php
             for ($i = 0; $i < count($CoachePlanner); $i++) {
                 $Name = $CoachePlanner[$i]['Name'];
                 $Available = $CoachePlanner[$i]['Availability'];
                 $Preference = $CoachePlanner[$i]['Preference'];
-                $DaysWorked = $CoachePlanner[$i][0]['DaysWorked'];
-                $nDays = count($DaysWorked);
-                $Shift = $CoachePlanner[$i][0]['Shift'];
-                $Hrs = $CoachePlanner[$i][0]['HrsWorked'];
-                
+               
+                $Shift = array_column($CoachePlanner[$i], 'Shift');
+                $Hrs = array_column($CoachePlanner[$i], 'HrsWorked');
+                $DaysWorked = array_column($CoachePlanner[$i], 'DaysWorked');
+  
+                foreach ($Hrs as $key => $val) {
+                    $Hrs = array_sum($val) . PHP_EOL;
+                } 
             
                 echo "<tr><td>$Name</td><td>";
                 
@@ -146,9 +149,14 @@ require("./Schedules.php");
                     if($enum == 3) {echo "<p>geen</p>";}                   
                 }
             
+                echo"</td>";
+
+                foreach ($DaysWorked as $array => $enum){
+                    echo"<td>" . count($enum);
+                }
                 echo"</td><td>";
-                foreach ($DaysWorked as $enum){
-                   
+                foreach ($DaysWorked as $array){
+                    foreach ($array as $key => $enum) {
                     if($enum == 0) {echo "<p>ma</p>";}
                     if($enum == 1) {echo "<p>di</p>";}
                     if($enum == 2) {echo "<p>wo</p>";}
@@ -156,31 +164,35 @@ require("./Schedules.php");
                     if($enum == 4) {echo "<p>vr</p>";}
                     if($enum == 5) {echo "<p>za</p>";}
                     if($enum == 6) {echo "<p>zo</p>";}
-                }
-                echo "</td><td>" . array_sum($Hrs) . "</td>";
-                echo "<td>" .  $PrefHours[$Name][0] . "</td>";
-                echo "<td>$nDays</td><td>";
-            
-                foreach ($Shift as $enum) {
+                }}
+                echo "</td><td>" . $Hrs . "</td>";
+                foreach ($PrefHours[$Name] as $key) {
+                echo "<td>$key</td><td>";
+            }
+                foreach ($Shift as $array) {
+                    foreach ($array as $key => $enum) {
                     if($enum == 0) {echo "<p>ochtend</p>";}
                     if($enum == 1) {echo "<p>middag</p>";}
                     if($enum == 2) {echo "<p>avond</p>";}
-                }
+                }}
                 
                 echo "</td><td>";
-                for ($j = 0; $j < count($Shift); $j++) {
-                    if (in_array($Shift[$j], $Preference)) {echo "<p>Ja</p>";}
-                 elseif(count($Shift) > 1) {echo "<p>Nee</p>";}
-                }   
-                    foreach($Preference as $enum) {
+                foreach ($Shift as $array) {
+                    foreach ($array as $key => $enum) {
+                        
+                        if (in_array($enum, $Preference)) {
+                            echo "<p>Ja</p>";
+                        } elseif($Preference == 3) {
+                            echo "<p>n.v.t.</p>";
+                        } else {echo "<p>Nee</p>";}
+                    }}
+                
+
+                foreach($Preference as $enum) {
                     if($enum == 3) {echo "<p>n.v.t.</p>";}                   
                 }
-                   
-                
-               
-                 
+                echo "</td></tr></th>"; 
             };
-            echo "</td></tr></th>"; 
             ?>
             </table>
             <h3>Welke coach heeft meeste voorkeurs werkuren?</h3>
