@@ -122,7 +122,7 @@ require("./Schedules.php");
             <p>
                 Het Bit-Academy rooster heeft de array gevuld met nieuwe informatie. De tabel hieronder is een weergaven op basis van het rooster en de al bekende voorkeuren.
                 Per coach is te zien wat het aantal dagen, diensten, de voorkeur, het aantal uren en hoeveel daarvan in opgeven voorkeur zijn.
-
+            </p>
             <table class="Overview-tbl">
             <tr><th><td>Naam</td><td>Voorkeur</td><td>N-dagen</td><td>Ingeroostert op</td><td>Uren</td><td>Uren in voorkeur</td><td>Dienst</td><td>Voorkeur?</td></th></tr>
             <?php
@@ -202,54 +202,30 @@ require("./Schedules.php");
             </table>
             <div id="cards-Preference">
                
-                <div>
-                    <h3>Sander</h3>
-                    <img src="./figuur.png" alt="Drawing of contour of man">
-                    <p>Werkuren: 25.5, <br>daarvan 0 in voorkeur</p>
-                    <p><span><?php echo round(((0/25.5) * 100),2) . " %"; ?></span></p>
-                    <Progress bar value="0" max="25.5"></Progress bar>
-                </div>
-           
-                <div>
-                    <h3>Alexander</h3>
-                    <img src="./figuur.png" alt="Drawing of contour of man">
-                    <p>Werkuren: 12.5, <br>daarvan 4 in voorkeur</p>
-                    <p><span><?php echo round(((4/12.5) * 100),2) . " %"; ?></span></p>
+                <?php
+                for ($i = 0; $i < count($CoachePlanner); $i++) {            
+                    $Name = $CoachePlanner[$i]['Name'];
+                    $Hrs = array_column($CoachePlanner[$i], 'HrsWorked');
+                    // foreach ($PrefHours[$Name] as $key) {
+                        foreach ($Hrs as $key => $val) {
+                            $Hrs = array_sum($val) . PHP_EOL;
+                        } 
+                        foreach ($PrefHours[$Name] as $key) {
+                            $prefhours = $key;
+                        }
+                        
+                    echo "<div>";
+                    echo "<h3>$Name</h3>";
+                    echo "<img src='./figuur.png' alt='Drawing of contour of man'>";
+                    echo "<p>Werkuren: $Hrs, <br>daarvan $prefhours in voorkeur</p>";
+                    echo "<p><span>" . round((($prefhours /$Hrs) * 100),2) . " %</span></p>";
+                    echo "<Progress bar value=$prefhours max=$Hrs></Progress bar></div>";
                     
-                    <Progress bar value="4" max="12.5"></Progress bar>
+                };
+           
+                ?>
                 </div>
 
-                <div>
-                    <h3>Nick</h3>
-                    <img src="./figuur.png" alt="Drawing of contour of man">
-                    <p>Werkuren: 3.5, <br>geen voorkeur</p>
-                    <p><span><?php echo "N.v.t"; ?></span></p>
-                    <Progress bar value="null" max="3.5"></Progress bar>
-                </div>
-                <div>
-                    <h3>Sam</h3>
-                    <img src="./figuur.png" alt="Drawing of contour of man">
-                    <p>Werkuren: 2, <br>geen voorkeur</p>
-                    <p><span><?php echo "N.v.t"; ?></span></p>
-                    
-                    <Progress bar value="null" max="2"></Progress bar>
-                </div>
-                <div>
-                    <h3>Daniel</h3> 
-                    <img src="./figuur.png" alt="Drawing of contour of man">
-                    <p>Werkuren: 17, <br>daarvan 17 in voorkeur</p>
-                    <p><span><?php echo round(((17/17) * 100),2) . " %"; ?></span></p>
-                   
-                    <Progress bar value="17" max="17"></Progress bar>
-                </div>
-                <div>
-                    <h3>Henok</h3>
-                    <img src="./figuur.png" alt="Drawing of contour of man">
-                    <p>Werkuren: 8.5, <br> daarvan 5.5 in voorkeur</p>
-                    <p><span><?php echo round(((5.5/8.5) * 100),2) . " %"; ?></span></p>
-                    <Progress bar value="5.5" max="8.5"></Progress bar>
-                </div>
-            </div>
 
         </section>
 
@@ -258,7 +234,6 @@ require("./Schedules.php");
                 Nieuw Rooster
             </h2>
             <h3>Plannen op basis van voorkeur.</h3>
-            <p>
             
             <div class="Generate-Schedule">
             <p>

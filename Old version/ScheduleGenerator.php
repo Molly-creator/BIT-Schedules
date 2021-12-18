@@ -69,6 +69,9 @@ $NewPlanning = [
     'Zondag 09:00-17:30' => [],
 ]; 
 
+
+
+
 for ($i = 0; $i < count($CoachePlanner); $i++) {
     $Name = $CoachePlanner[$i]['Name'];
     $Preference = $CoachePlanner[$i]['Preference'];
