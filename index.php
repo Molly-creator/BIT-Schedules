@@ -107,7 +107,6 @@ require("./Schedules.php");
             <?php
          
          foreach ($coachHoursWorked as $key => $values) {
-   
             echo "<td>$values[1]</td><td>$values[0]</td></tr>";
         }; ?>
             </th></tr>

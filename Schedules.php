@@ -210,9 +210,11 @@ for ($i = 0; $i < count($CoachePlanner); $i++) {
     //         echo "$key => $enum" . PHP_EOL;
     //         // for ($j = 0; $j < count($Shift); $j++) {
     // }  }
+
+    array_push($coachHoursWorked,[$Name, $Hrs]);
 }
 
-// sort($coachHoursWorked);
+sort($coachHoursWorked);
 
 // Percentage voorkeur uitrekenen. Hiervoor kijken in CoacePlanner array naar 'Preference', 'HrsWorked' en 'Shift' in de .
 // Werkuren verdeeld in ochtend/middag/avond (tot 12.00/ tot 18.00/tot 00.00).
